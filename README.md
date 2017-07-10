@@ -70,3 +70,31 @@ Implement a program that calculates the minimum number of coins required to give
     
 [View my solution on GitHub](pset1/greedy.c)
 
+## Pset2: Crypto
+
+### Initials
+Implement a program that, given a person’s name, prints a person’s initials, per the below.
+
+    $ ./initials
+    Regulus Arcturus Black
+    RAB
+    
+[View my solution on GitHub](pset2/initials.c)
+
+### Caesar
+Implement a program that encrypts messages using Caesar’s cipher, per the below.
+
+    $ ./caesar 13
+    laintext:  HELLO
+    ciphertext: URYYB
+    
+[View my solution on GitHub](pset2/caesar.c)
+
+### Vigenere
+Implement a program that encrypts messages using Vigenère’s cipher, per the below.
+
+    $ ./vigenere ABC
+    plaintext:  HELLO
+    ciphertext: HFNLP
+    
+[View my solution on GitHub](pset2/vigenere.c)
