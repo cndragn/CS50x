@@ -17,3 +17,56 @@ Your mission is, quite simply, to have fun with Scratch and implement a project 
 * Your project should be more complex than most of those demonstrated in lecture (many of which, though instructive, were quite short) but it can be less complex than Oscartime and Pokemon Go. As such, your project should probably use a few dozen puzzle pieces overall.
 
 [Play my "Friendly Ghost Game" on Scratch!](https://scratch.mit.edu/projects/157763200/)
+
+## Pset1: C
+
+### Hello
+Implement a program that prints out a simple greeting to the user, per the below.
+
+    $ ./hello
+    Hello, world!
+    
+[View my solution on GitHub](pset1/hello.c)
+
+### Water
+Implement a program that reports a user’s water usage, converting minutes spent in the shower to bottles of drinking water.
+
+    $ ./water
+    Minutes: 1
+    Bottles: 12
+
+    $ ./water
+    Minutes: 10
+    Bottles: 120
+    
+[View my solution on GitHub](pset1/water.c)
+
+### Mario
+Implement a program that prints out a half-pyramid of a specified height, per the below.
+
+    $ ./mario
+    Height: 5
+        ##
+       ###
+      ####
+     #####
+    ######
+
+    $ ./mario
+    Height: 3
+      ##
+     ###
+    ####
+    
+[View my solution on GitHub](pset1/mario.c)
+
+### Greedy
+Implement a program that calculates the minimum number of coins required to give a user change.
+
+    $ ./greedy
+    O hai! How much change is owed?
+    0.41
+    4
+    
+[View my solution on GitHub](pset1/greedy.c)
+
