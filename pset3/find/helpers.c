@@ -14,7 +14,31 @@
 bool search(int value, int values[], int n)
 {
     // TODO: implement a searching algorithm
-    return false;
+    
+   
+    
+    if (n < 0) {
+        return false;
+    }
+    
+
+    //Linear Search
+    //iterate through sorted values array
+    int i;
+    for (i = 0; i < n; i++) {
+        //eprintf("%i \n", values[i]);
+        
+        //if i in values array matches search value return true
+        if (values[i] == value) {
+            return true;
+        } 
+    }
+    
+    //if theres no match, return false
+    //eprintf("Halp! \n");
+    return 0;
+
+  
 }
 
 /**
@@ -23,5 +47,23 @@ bool search(int value, int values[], int n)
 void sort(int values[], int n)
 {
     // TODO: implement a sorting algorithm
+    
+    //Bubble Sort
+    int i, j;
+    
+    //sort through numbers in array value
+    for (i = 0; i < n-1; i++) {
+        
+        //sort through values up to the last before prior search, 
+        for (j = 0; j < n-i-1; j++) {
+            
+            //if the current value is greater than the next value, swap them
+            if (values[j] > values[j+1]) {
+                int temp = values[j];
+                values[j] = values[j+1];
+                values[j+1] = temp;
+            }
+        }
+    }
     return;
 }
