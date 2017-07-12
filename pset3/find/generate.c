@@ -28,10 +28,10 @@ int main(int argc, string argv[])
         return 1;
     }
 
-    // TODO: comment me
+    // TODO: convert the 2nd argument from a string into a number
     int n = atoi(argv[1]);
 
-    // TODO: comment me
+    // TODO: if there are 3 arguments, convert 3rd arg into a number and pass the seed value
     if (argc == 3)
     {
         srand48((long) atoi(argv[2]));
@@ -41,7 +41,7 @@ int main(int argc, string argv[])
         srand48((long) time(NULL));
     }
 
-    // TODO: comment me
+    // TODO: interate n times and print the value of drand48 times the limit
     for (int i = 0; i < n; i++)
     {
         printf("%i\n", (int) (drand48() * LIMIT));
