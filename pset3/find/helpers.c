@@ -21,7 +21,7 @@ bool search(int value, int values[], int n)
         return false;
     }
     
-
+/*
     //Linear Search
     //iterate through sorted values array
     int i;
@@ -37,6 +37,35 @@ bool search(int value, int values[], int n)
     //if theres no match, return false
     //eprintf("Halp! \n");
     return 0;
+    */
+    
+      
+    //Binary Search
+    int first = 0;
+    int last = n - 1;
+    int middle = (first - last) / 2;
+    
+    while (first <= last) {
+        if (values[middle] < n) {
+        first = middle + 1; 
+    }   
+    
+    else if (values[middle] == n){
+        return true;
+        break;
+    }   
+    
+    else {
+        last = middle - 1;
+        middle = (first + last) / 2;
+    }
+    
+
+if (first > last) {
+    return 0;
+}
+}
+return 0;
 
   
 }
