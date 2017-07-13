@@ -36,37 +36,49 @@ bool search(int value, int values[], int n)
     
     //if theres no match, return false
     //eprintf("Halp! \n");
-    return 0;
     */
-    
+ 
+
       
     //Binary Search
     int first = 0;
-    int last = n - 1;
-    int middle = (first - last) / 2;
+    int last = n;
+    int middle = (first + last) / 2;
+    
+    //42 - 40, 41, 42, 43
+    //eprintf("%i \n",values[first]); //42
+    //eprintf("%i \n",values[last]);  //43
+    //eprintf("%i \n",values[middle]); //41
     
     while (first <= last) {
-        if (values[middle] < n) {
+        
+        //if middle is less than value, move start to mid and find new mid
+        if (values[middle] < value) {
         first = middle + 1; 
-    }   
-    
-    else if (values[middle] == n){
+        middle = (first + last) / 2;
+        }   
+        
+        //if mid and value are the same, return true and stop
+        else if (values[middle] == value){
         return true;
         break;
-    }   
+        }   
     
-    else {
+        //if mid is more than val, make mid the end and find new mid.
+        else if (values[middle] > value){
         last = middle - 1;
         middle = (first + last) / 2;
-    }
+        }
     
 
-if (first > last) {
-    return 0;
+    if (first > last) {
+        return 0;
+    }
 }
-}
-return 0;
 
+
+
+return 0;
   
 }
 
