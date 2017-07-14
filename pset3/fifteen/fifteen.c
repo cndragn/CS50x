@@ -156,7 +156,7 @@ void greet(void)
  */
 void init(void)
 {
-     int n = 1; // counter to subject from number for grid values
+     int counter = 1; // counter 
      
      //iterate over grid first by row, then by column
    
@@ -166,10 +166,17 @@ void init(void)
         {
             //set value for grid in descending order
              {
-                board[i][j] = (d * d) - n;
-                n++;
+                board[i][j] = (d * d) - counter;
+                counter++;
             }
         }
+    }
+    
+    //if d is even, swap 2 and 1 so game is solveable
+    if ( d%2 == 0) {
+        int swap = board[d-1][d-2];
+        board[d-1][d-2] = board[d-1][d-3];
+        board[d-1][d-3] = swap;
     }
 }
 
@@ -186,11 +193,20 @@ void draw(void)
         {
             //print value for grid row by row
              {
+                 //print underscore for 0, the blank space otherwise print tile number
+                if (board[i][j] == 0) {
+                    printf(" _ ");
+                }
+                else
+                {
                 printf("%2d ", board[i][j]);
+                }
+                
                 if (j < d - 1)
                 {
                     printf("|");
                 }
+                
             }
         }
         printf("\n");
@@ -203,7 +219,46 @@ void draw(void)
  */
 bool move(int tile)
 {
-    // TODO
+    // iterate over row, then column to find chosen tile
+     for (int i = 0; i < d; i++) 
+    {
+        // iterate through columns to find tile
+        for (int j = 0; j < d; j++) 
+        {
+            
+            //if the tile existson the board, swap if blank is adjecent
+            if(tile == board[i][j]) {
+                //on the right
+                if (j+1 <= d-1 && board[i][j+1] == 0)
+                {
+                    board[i][j+1] = tile;
+                    board[i][j] = 0;
+                    return true;
+                }
+                // on the left
+                else if (j-1 >= 0 && board[i][j-1] == 0)
+                {
+                    board[i][j-1] = tile;
+                    board[i][j] = 0;
+                    return true;
+                }
+                // on top
+                else if (i-1 >= 0 && board[i-1][j] == 0)
+                {
+                    board[i-1][j] = tile;
+                    board[i][j] = 0;
+                    return true;
+                }
+                // underneath
+                else if (i+1 <= d-1 && board[i+1][j] == 0)
+                {
+                    board[i+1][j] = tile;
+                    board[i][j] = 0;
+                    return true;
+                }
+            } 
+        }
+    }
     return false;
 }
 
@@ -213,6 +268,39 @@ bool move(int tile)
  */
 bool won(void)
 {
-    // TODO
-    return false;
+     
+     //iterate over grid first by row, then by column
+   
+   int counter = 1; // counter 
+    for(int i = 0; i < d; i++)
+    {
+        for(int j = 0; j < d; j++)
+        {
+            //check if board tile matches counter
+            
+             {
+            if (board[i][j] == counter)
+            
+            //printf("%i\n",counter);
+            printf("halp!");
+            
+            //if counter reaches final piece ftw
+                if (counter == (d * d))
+                {
+                    return true;
+                }
+            }
+            // if counter doesnt match, go another turn
+            if (board[i][j] != counter)
+            {
+                return false;
+            }
+            counter++;
+            
+        }
+         
+    }
+    
+    
+  return 0;
 }
