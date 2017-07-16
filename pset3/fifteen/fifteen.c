@@ -281,12 +281,13 @@ bool won(void)
              {
             if (board[i][j] == counter)
             
-            //printf("%i\n",counter);
-            printf("halp!");
+            //printf("Counter: %i",counter);
+            //printf(" - Board: %i\n", d * d);
             
             //if counter reaches final piece ftw
-                if (counter == (d * d))
+                if (counter == (d * d) - 1)
                 {
+                    printf("HALP!");
                     return true;
                 }
             }
