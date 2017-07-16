@@ -1,0 +1,35 @@
+1.  stdint.h is a header file that provides a set of typedefs specifying exact-width integer types, 
+    and mininimum and maximum allowad values for each type, using macros
+
+2.  uint8_t, uint32_t, int32_t, and uint16_t functions are a cross-platform implementation of a standard 
+    data type. uint8_t is an unsigned int of 8 bits, uint32_t is an unsigned long long, int32_t is a signed 
+    long long, and a uint16_t is an unsigned 16 bit int.
+	
+3.  Byte is 8 bits, or 1 byte
+    DWORD is 32 bits ,or 4 bytes
+    LONG is 32 bits, or 4 bytes
+    WORD is 16 bits or 2 bytes
+	
+4.  The first two bytes of a BMP is WORD and denotes bfType, which specifies the file type. 
+    Hex: 0x424d, 42 and 4d are the first two bytes. ASCII: BM for bitmap.
+
+5.  bfSize specifies the size, in bytes, of the bitmap file.
+	biSize specifies the size of the structure in bytes.
+	
+6.  If biHeight is negative, the bitmap flips the DIB (also called bitmapinfo header) so its origin is
+    the top left corner instead of bottom left.
+	
+7.  biBitCount in BITMAPINFOHEADER specifies the BMP's color depth (i.e., bits per pixel)
+
+8.  fopen will return NULL if it cannot create the outfile to write to.
+    This can happen if the file is Read-Only or Write Protected.
+    
+9.  The third argument in fread is always 1 because that is the amount of elements to be read.
+
+10. Padding is assigned if the bi-biWiedth is 3 to bring the width up to a multiple of 4
+    3 bits of pixel only come to 9 byes, the pdding brings it to 12 bytes.
+
+11. Skips over padding to the next RGB triple
+
+12. SEEK_CUR is the current position of the pointer that fseek uses to as an indicator to know 
+    where to start searching from
