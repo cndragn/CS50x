@@ -1,0 +1,24 @@
+Psuedocode
+
+Open memory card file *
+For length of card //LOOP *
+	Read 512 bytes into a buffer *
+		If start of new JPG
+			Yes
+				Check if already writing to JPG
+					Yes
+						Close File
+						Open new JPG
+						Write 512 bytes
+						Move on to next block
+					No
+						Open new Jpg
+						Write 512 bytes
+						Move on to next block
+			No
+				Check if there are 512 bytes in block
+					Yes
+						Discard 512 bytes and move on to next block
+					No
+						If files are open, close them
+						Direct end of file
