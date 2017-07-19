@@ -98,3 +98,33 @@ Implement a program that encrypts messages using Vigenère’s cipher, per the b
     ciphertext: HFNLP
     
 [View my solution on GitHub](pset2/vigenere.c)
+
+## Pset3: Game of Fifteen
+
+### Find
+Implement a program that finds a number among numbers, per the below.
+
+    $ ./generate 1000 | ./find 42
+    Didn't find needle in haystack.
+
+[View my solution on GitHub](https://github.com/cndragn/CS50x/tree/master/pset3/find)
+
+### Game of Fifteen
+Implement the Game of Fifteen, per the below.
+
+    $ ./fifteen 3
+    WELCOME TO GAME OF FIFTEEN
+
+    8  7  6
+
+    5  4  3
+
+    2  1  _
+
+    Tile to move:
+    
+The Game of Fifteen is a puzzle played on a square, two-dimensional board with numbered tiles that slide. The goal of this puzzle is to arrange the board’s tiles from smallest to largest, left to right, top to bottom, with an empty space in board’s bottom-right corner,
+
+Although other configurations are possible, we shall assume that this game begins with the board’s tiles in reverse order, from largest to smallest, left to right, top to bottom, with an empty space in the board’s bottom-right corner.
+
+[View my solution on GitHub](https://github.com/cndragn/CS50x/tree/master/pset3/fifteen)
