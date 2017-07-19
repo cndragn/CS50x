@@ -101,27 +101,53 @@ int main(int argc, char *argv[])
     // iterate over infile's scanlines
     for (int i = 0, biHeight = abs(bi.biHeight); i < biHeight; i++)
     {
-        // iterate over pixels in scanline
-        for (int j = 0; j < bi.biWidth; j++)
+    
+        //copy each row n times
+        int rowntimes = 0;
+        
+        while (rowntimes < n)
         {
-            // temporary storage
-            RGBTRIPLE triple;
+            // iterate over pixels in scanline
+            for (int j = 0; j < bi.biWidth; j++)
+            {
+                //printf("j is %i and bi.biWidth is %i\n", j, bi.biWidth);
+                
+                // temporary storage
+                RGBTRIPLE triple;
+                
+                // read RGB triple from infile
+                fread(&triple, sizeof(RGBTRIPLE), 1, inptr);
+                
+                //For Resize - print each pixel n times
+                int pcounter = 0;
+                
+                //repeat til done copyingng n times
+                while (pcounter < n) 
+                {
+                
+                    // write RGB triple to outfile
+                    fwrite(&triple, sizeof(RGBTRIPLE), 1, outptr);
+                    pcounter++;
+                
+                }
+                
+                
+            }
+            // skip over padding, if any
+            
+            
+            // then add it back (to demonstrate how)
+            for (int k = 0; k < padding; k++)
 
-            // read RGB triple from infile
-            fread(&triple, sizeof(RGBTRIPLE), 1, inptr);
-
-            // write RGB triple to outfile
-            fwrite(&triple, sizeof(RGBTRIPLE), 1, outptr);
-        }
-
-        // skip over padding, if any
-        fseek(inptr, padding, SEEK_CUR);
-
-        // then add it back (to demonstrate how)
-        for (int k = 0; k < padding; k++)
-        {
             fputc(0x00, outptr);
+            
+            if (rowntimes < (n - 1))
+            fseek(inptr, -(bi.biWidth * sizeof(RGBTRIPLE)), SEEK_CUR);
+            
+            rowntimes++;
         }
+        
+        fseek(inptr, padding, SEEK_CUR);
     }
 
     // close infile
