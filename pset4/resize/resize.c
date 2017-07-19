@@ -137,12 +137,12 @@ int main(int argc, char *argv[])
             
             
             // then add it back (to demonstrate how)
-            for (int k = 0; k < padding; k++)
+            for (int k = 0; k < newPadding; k++)
 
             fputc(0x00, outptr);
             
             if (rowntimes < (n - 1))
-            fseek(inptr, -(bi.biWidth * sizeof(RGBTRIPLE)), SEEK_CUR);
+            fseek(inptr, -(long int)(bi.biWidth * sizeof(RGBTRIPLE)), SEEK_CUR);
             
             rowntimes++;
         }
