@@ -6,6 +6,9 @@
 //data type
 typedef uint8_t  BYTE;
 
+//buffer size
+#define BUFFERSIZE 512
+
 //JFIFHEAD
 typedef struct _JFIFHeader
 {
@@ -42,12 +45,17 @@ int main(int argc, char *argv[])
         return 2;
     }
     
+    //create buffer
+    unsigned char buffer[BUFFERSIZE] = {};
+    
+    //counter for filenames
+    //int counter = 0;
     
     //for length of card, read 512 bytes into a buffer
-    JFIFHEAD buffer;
+    //JFIFHEAD buffer;
     while(fread(&buffer, 1, 512, inptr) != 0)
     {
-        if (buffer[0] == 0xff && buffer[1] == 0xd8 && buffer[3] == 0xff && (buffer[3] && 0xf0) == 0xe0) {
+        if (buffer[0] == 0xff && buffer[1] == 0xd8 && buffer[2] == 0xff && (buffer[3] & 0xf0) == 0xe0) {
         
         printf("Found it");
         }
