@@ -40,7 +40,7 @@ int main(int argc, char *argv[])
     FILE *inptr = fopen(infile, "r");
     
     //declare outfile file
-    FILE *outptr = NULL;
+    FILE *newjpg;
     
     if(inptr == NULL)
     {
@@ -57,28 +57,32 @@ int main(int argc, char *argv[])
     
     //for length of card, read 512 bytes into a buffer
     //JFIFHEAD buffer;
-    while(fread(&buffer, 1, 512, inptr) != 0)
+    while(fread(buffer, 1, BUFFERSIZE, inptr) != 0)
     {
         if (buffer[0] == 0xff && buffer[1] == 0xd8 && buffer[2] == 0xff && (buffer[3] & 0xf0) == 0xe0) {
             
             if(writing == 1) {
-                //CLOSE FILE
-                return 0;
+                //printf("start a new file! %i", counter);
+                fclose(newjpg);
             }
             
             //MAKE AND OPEN NEW JPG
             char filename[8];
             sprintf(filename, "%03d.jpg", counter);
-            fopen(filename,"a");
+            newjpg = fopen(filename,"a");
             counter++;
             writing = 1;
             
             //WRITE 512 BYTES
-            fwrite(&buffer, BUFFERSIZE, 1, outptr);
+            fwrite(buffer, 1, BUFFERSIZE, newjpg);
             //MOVE ON TO NEXT BLOCK
         }
+        
     }
     
-   return 1;
+    fclose(inptr);
+    fclose(newjpg);
+    
+   return 0;
 }
 
