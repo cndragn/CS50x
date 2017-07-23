@@ -77,6 +77,12 @@ int main(int argc, char *argv[])
             fwrite(buffer, 1, BUFFERSIZE, newjpg);
             //MOVE ON TO NEXT BLOCK
         }
+        else
+        //keep writing to curently open jpg
+        {
+            if (newjpg != NULL)
+            fwrite(buffer, 1, BUFFERSIZE, newjpg);
+        }
         
     }
     
@@ -85,4 +91,3 @@ int main(int argc, char *argv[])
     
    return 0;
 }
-
