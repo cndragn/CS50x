@@ -128,3 +128,26 @@ The Game of Fifteen is a puzzle played on a square, two-dimensional board with n
 Although other configurations are possible, we shall assume that this game begins with the board’s tiles in reverse order, from largest to smallest, left to right, top to bottom, with an empty space in the board’s bottom-right corner.
 
 [View my solution on GitHub](https://github.com/cndragn/CS50x/tree/master/pset3/fifteen)
+
+## Pset4: Forensics
+
+### Whodunit
+Answer some questions and then implement a program that reveals a hidden message in a BMP, per the below.
+
+    $ ./whodunit clue.bmp verdict.bmp
+
+[View my solution on GitHub](https://github.com/cndragn/CS50x/tree/master/pset4/whodunit)
+
+### Resize
+Implement a program that resizes BMPs, per the below.
+
+    $ ./resize 4 small.bmp large.bmp
+
+[View my solution on GitHub](https://github.com/cndragn/CS50x/tree/master/pset4/resize)
+
+### Recover
+Implement a program that recovers JPEGs from a forensic image, per the below.
+
+    $ ./recover card.raw
+
+[View my solution on GitHub](https://github.com/cndragn/CS50x/tree/master/pset4/recover)
