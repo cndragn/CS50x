@@ -151,3 +151,32 @@ Implement a program that recovers JPEGs from a forensic image, per the below.
     $ ./recover card.raw
 
 [View my solution on GitHub](https://github.com/cndragn/CS50x/tree/master/pset4/recover)
+
+## Pset5: Misspellings
+
+### Speller
+Implement a program that spell-checks a file, per the below.
+
+    $ ./speller texts/austinpowers.txt
+    MISSPELLED WORDS
+
+    [...]
+    Bigglesworth
+    [...]
+    Virtucon
+    [...]
+    friggin'
+    [...]
+    trippy
+    [...]
+
+    WORDS MISSPELLED:
+    WORDS IN DICTIONARY:
+    WORDS IN TEXT:
+    TIME IN load:
+    TIME IN check:
+    TIME IN size:
+    TIME IN unload:
+    TIME IN TOTAL:
+
+[View my solution on GitHub](https://github.com/cndragn/CS50x/tree/master/pset5)
