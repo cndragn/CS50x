@@ -19,13 +19,18 @@ if len(sys.argv) == 2:
             
             if char.isupper():
                 a = ord(char) - 65
-                c = (a+k)%26
-                print(chr(ord(char) +c))
+                c = ((a+k)%26) + 65
+                print(chr(c),end="")
             
             elif char.islower():
                 a = ord(char) - 97
-                c = (a+k)%26
-                print(chr(ord(char) +c))
+                c = ((a+k)%26) + 97
+                print(chr(c),end="")
+                
+        else:
+            print(char,end="")
+    
+    print()
     
 else:
     print("Usage: "+ sys.argv[0])
